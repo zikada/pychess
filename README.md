@@ -2,4 +2,4 @@
 ### This program is licensed under the GPLv3. ###
 
 # PyChess
-A CLI-based chess game using the Stockfish engine.
+A CLI-based chess game using the Stockfish chess engine.
