@@ -5,14 +5,29 @@ import sys
 import pychess
 
 print("Welcome to PyChess, a CLI-based chess game using the Stockfish chess engine.")
-input("Press Enter to continue... ")
-board_state = [["R", "K", "T", "Q", "M", "T", "K", "R"], [" ", " ", " ", " ", " ", " ", " ", " "],
-               [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
-               [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
-               [" ", " ", " ", " ", " ", " ", " ", " "], ["R", "K", "T", "Q", "M", "T", "K", "R"]]
+input("Press Enter to continue...")
+while True:
+    try:
+        white_or_black = str(input("Do you wanna play as white or black? "))
+        if white_or_black != "white" and white_or_black != "black":
+            raise Exception('The answer can only be "white" or "black"')
+    except:
+        print("Invalid answer.")
+    else:
+        if white_or_black == "white":
+            board_state = [["r", "k", "t", "q", "m", "t", "k", "r"], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], ["R", "K", "T", "Q", "M", "T", "K", "R"]]
+        else:
+            board_state = [["R", "K", "T", "Q", "M", "T", "K", "R"], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
+                           [" ", " ", " ", " ", " ", " ", " ", " "], ["r", "k", "t", "q", "m", "t", "k", "r"]]
+        break
 try:
     print("\n" + pychess.parse_board(board_state))
-    action = str(input("Your move (type \"quit\" or \"exit\" to quit): "))
+    action = str(input('Your move (type "quit" or "exit" to quit): '))
     if ("quit" or "exit") in action:
         sys.exit(0)
     pychess.action_validate(action)
