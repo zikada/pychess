@@ -10,9 +10,10 @@ def parse_line(x, board_state):
 
 def parse_board(board_state):
     board = "+-+-+-+-+-+-+-+-+"
-    for d in range(8):
-        board = board + "\n" + parse_line(d, board_state)
-        board = board + "\n" + "+-+-+-+-+-+-+-+-+"
+    for d, c in range(8):
+        board = board + "\n" + str(c + 1) + " " + parse_line(d, board_state)
+        board = board + "\n+-+-+-+-+-+-+-+-+"
+    board = board + "\n\n   A B C D E F G H"
     return board
 
 
