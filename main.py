@@ -25,14 +25,18 @@ while True:
                            [" ", " ", " ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " ", " ", " "],
                            [" ", " ", " ", " ", " ", " ", " ", " "], ["r", "k", "t", "q", "m", "t", "k", "r"]]
         break
-try:
-    print("\n" + pychess.parse_board(board_state))
-    action = str(input('Your move (type "quit" or "exit" to quit): '))
-    if ("quit" or "exit") in action:
-        sys.exit(0)
-    pychess.action_validate(action)
-except:
-    print("Invalid action.")
-else:
-    print("Thinking...")
-    board_state = pychess.computer_move(board_state)
+while True:
+    try:
+        print("\n" + pychess.parse_board(board_state))
+        action = str(input('Your move (type "quit" or "exit" to quit): '))
+        if action == "quit" or action == "exit":
+            sys.exit(0)
+        else:
+            pychess.action_validate(action)
+    except SystemExit:
+        raise
+    except:
+        print("Invalid action.")
+    else:
+        print("Thinking...")
+        board_state = pychess.computer_move(board_state)
