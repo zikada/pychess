@@ -17,11 +17,11 @@ def parse_board(board_state):
     board += "\n\n    A B C D E F G H  "
     return board
 
-
-def action_validate(action):
-    class InvalidAction(Exception):
-        pass
-
-
-def computer_move(board_state):
-    pass
+# def action_validate(action):
+#     class InvalidAction(Exception):
+#         pass
+#
+#
+# Buggy function: It looks like the pass statement makes the board_state variable become None (null)
+# def computer_move(board_state):
+#     pass
