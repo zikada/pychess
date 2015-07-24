@@ -50,15 +50,15 @@ while True:
             print("\n" + pychess.parse_board(board_state) + "\n")
         else:
             print("\n" + pychess.parse_board(board_state)[::-1] + "\n")
-        action = str(input('Your move (type "quit" or "exit" to quit): '))
-        if action == "quit" or action == "exit":
+        user_move = str(input('Your move (type "quit" or "exit" to quit): '))
+        if user_move == "quit" or user_move == "exit":
             sys.exit(0)
             # else:
-            #     pychess.action_validate(action)
+            #     pychess.validate_move(user_move)
     except SystemExit:
         raise
     except:
-        print("Invalid action.")
+        print("Invalid move.")
     else:
         print("Thinking...")
         # board_state = pychess.computer_move(board_state)

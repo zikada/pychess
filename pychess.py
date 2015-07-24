@@ -17,8 +17,8 @@ def parse_board(board_state):
     board += "\n\n    A B C D E F G H  "
     return board
 
-# def action_validate(action):
-#     class InvalidAction(Exception):
+# def validate_move(user_move):
+#     class InvalidMove(Exception):
 #         pass
 #
 #
